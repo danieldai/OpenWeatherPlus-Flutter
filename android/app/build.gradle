@@ -38,6 +38,10 @@ android {
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+
+        manifestPlaceholders = [
+                AMAP_KEY : "97d6cc95a6348ab808a63ef91053f96c", /// 高德地图key
+        ]
     }
 
     buildTypes {
@@ -51,4 +55,8 @@ android {
 
 flutter {
     source '../..'
+}
+
+dependencies {
+    implementation 'com.amap.api:location:5.0.0'
 }
