@@ -11,6 +11,14 @@ Please refer to:
 
 ## Intro
 
+### City Switching
+<img src="/doc/images/1.gif" width="300">
+
+### Scrolling horizontally with widget moving in opposite direction  
+<img src="/doc/images/3.gif" width="300">
+
+### Scrolling vertically
+<img src="/doc/images/2.gif" width="300">
 
 ## Todos
 
