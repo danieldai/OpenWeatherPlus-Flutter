@@ -7,7 +7,7 @@ This is Flutter version of OpenWeatherPlus created by Daniel Dai (danieldai.com)
 Please refer to:
 
 - https://github.com/heweather/OpenWeatherPlus-iOS
-- https://github.com/heweather/OpenWeatherPlus-Android)
+- https://github.com/heweather/OpenWeatherPlus-Android
 
 ## Intro
 
