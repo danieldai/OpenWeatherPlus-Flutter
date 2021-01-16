@@ -20,7 +20,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:owp/common/icons.dart';
 import 'package:owp/common/monotonex.dart';
-import 'package:owp/custom/scrollbar.dart';
 import 'package:owp/vendor/model.dart';
 
 import 'action.dart';
@@ -210,7 +209,8 @@ Widget buildBody(
                 state.id, scrollNotification.metrics.pixels));
             return true; //Return true to cancel the notification bubbling.
           },
-          child: MyScrollbar(
+          child: Scrollbar(
+              thickness: 3.0,
               child: ListView(scrollDirection: Axis.horizontal, children: [
             Container(width: screenUtil.setWidth(33)),
             Stack(children: layers)
