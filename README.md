@@ -1,6 +1,6 @@
 # OpenWeatherPlus-Flutter
 
-This is Flutter version of OpenWeatherPlus created by Daniel Dai (danieldai.com).
+This is Flutter version of OpenWeatherPlus created by [Daniel Dai](https://www.danieldai.com).
  
 ## OpenWeatherPlus from HeWeather
 
