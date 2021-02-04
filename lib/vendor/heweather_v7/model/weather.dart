@@ -89,8 +89,32 @@ class LiveCondition implements Cloneable<LiveCondition> {
     this.windSpeed,
   });
 
+  factory LiveCondition.fromJson(Map<String, dynamic> parsedJson) => _$LiveConditionFromJson(parsedJson);
+
+  Map<String, dynamic> toJson() => _$LiveConditionToJson(this);
+
   @override
   LiveCondition clone() {
-    return LiveCondition();
+    return LiveCondition()
+        ..cloud = cloud
+        ..dew = dew
+        ..feelsLike = feelsLike
+        ..humidity = humidity
+        ..icon = icon
+        ..obsTime = obsTime
+        ..precip = precip
+        ..pressure = pressure
+        ..temp = temp
+        ..vis = vis
+        ..text = text
+        ..wind360 = wind360
+        ..windDir = windDir
+        ..windScale = windScale
+        ..windSpeed = windSpeed;
+  }
+
+  @override
+  String toString() {
+    return 'LiveCondition{condition: $text: temp: $temp}';
   }
 }
