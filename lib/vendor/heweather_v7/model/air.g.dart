@@ -37,3 +37,23 @@ Map<String, dynamic> _$LiveAqiToJson(LiveAqi instance) => <String, dynamic>{
       'pubTime': instance.pubTime?.toIso8601String(),
       'so2': numToString(instance.so2),
     };
+
+DailyAqi _$DailyAqiFromJson(Map<String, dynamic> json) {
+  return DailyAqi(
+    date: json['fxDate'] == null
+        ? null
+        : DateTime.parse(json['fxDate'] as String),
+    value: int.parse(json['aqi'] as String),
+    category: json['category'] as String,
+    level: json['level'] as String,
+    primary: json['primary'] as String,
+  );
+}
+
+Map<String, dynamic> _$DailyAqiToJson(DailyAqi instance) => <String, dynamic>{
+      'fxDate': instance.date?.toIso8601String(),
+      'aqi': numToString(instance.value),
+      'category': instance.category,
+      'level': instance.level,
+      'primary': instance.primary,
+    };

@@ -94,3 +94,43 @@ class LiveAqi implements Cloneable<LiveAqi> {
     return 'LiveAqi{value: $value: pm25: $pm2p5 pubtime: $pubTime}';
   }
 }
+
+@JsonSerializable()
+class DailyAqi implements Cloneable<DailyAqi> {
+  @JsonKey(name: 'fxDate')
+  DateTime date;
+
+  @JsonKey(name: 'aqi', fromJson: int.parse, toJson: numToString)
+  int value;
+
+  @JsonKey(name: 'category')
+  String category;
+
+  @JsonKey(name: 'level')
+  String level;
+
+  @JsonKey(name: 'primary')
+  String primary;
+
+  DailyAqi({this.date, this.value, this.category, this. level, this.primary});
+
+  factory DailyAqi.fromJson(Map<String, dynamic> parsedJson) => _$DailyAqiFromJson(parsedJson);
+
+  Map<String, dynamic> toJson() => _$DailyAqiToJson(this);
+
+  @override
+  DailyAqi clone() {
+    return DailyAqi()
+      ..date = date
+      ..value = value
+        ..category = category
+        ..level = level
+        ..primary = primary;
+  }
+
+  @override
+  String toString() {
+    return 'DailyAqi{date: $date, value: $value}';
+  }
+}
+
