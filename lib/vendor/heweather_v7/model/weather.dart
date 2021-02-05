@@ -118,3 +118,96 @@ class LiveCondition implements Cloneable<LiveCondition> {
     return 'LiveCondition{condition: $text: temp: $temp}';
   }
 }
+
+@JsonSerializable()
+class HourlyCondition implements Cloneable<HourlyCondition> {
+  @JsonKey(fromJson: int.parse, toJson: numToString)
+  int cloud;
+
+  @JsonKey(fromJson: int.parse, toJson: numToString)
+  int dew; // 露点温度
+
+  @JsonKey(name: 'fxTime')
+  DateTime hour;
+
+  @JsonKey(name: 'humidity', fromJson: int.parse, toJson: numToString)
+  int humidity;
+
+  @JsonKey(name: 'icon')
+  String icon;
+
+  @JsonKey(fromJson: int.parse, toJson: numToString)
+  int pop; // 降水概率
+
+  @JsonKey(name: 'precip')
+  String precip;
+
+  @JsonKey(name: 'pressure', fromJson: int.parse, toJson: numToString)
+  int pressure;
+
+  @JsonKey(name: 'temp', fromJson: int.parse, toJson: numToString)
+  int temp;
+
+  @JsonKey(name: 'text')
+  String text;
+
+  @JsonKey(name: 'wind360', fromJson: int.parse, toJson: numToString)
+  int wind360;
+
+  @JsonKey(name: 'windDir')
+  String windDir;
+
+  @JsonKey(name: 'windScale', fromJson: int.parse, toJson: numToString)
+  int windScale;
+
+  @JsonKey(name: 'windSpeed', fromJson: double.parse, toJson: numToString)
+  double windSpeed;
+
+
+
+  HourlyCondition({
+    this.cloud,
+    this.dew,
+    this.hour,
+    this.humidity,
+    this.icon,
+    this.pop,
+    this.precip,
+    this.pressure,
+    this.temp,
+    this.text,
+    this.wind360,
+    this.windDir,
+    this.windScale,
+    this.windSpeed,
+  });
+
+  factory HourlyCondition.fromJson(Map<String, dynamic> parsedJson) => _$HourlyConditionFromJson(parsedJson);
+
+  Map<String, dynamic> toJson() => _$HourlyConditionToJson(this);
+
+  @override
+  HourlyCondition clone() {
+    return HourlyCondition()
+      ..cloud = cloud
+      ..dew = dew
+      ..hour = hour
+      ..humidity = humidity
+      ..icon = icon
+      ..pop = pop
+      ..precip = precip
+      ..pressure = pressure
+      ..temp = temp
+      ..text = text
+      ..wind360 = wind360
+      ..windDir = windDir
+      ..windScale = windScale
+      ..windSpeed = windSpeed;
+  }
+
+  @override
+  String toString() {
+    return 'HourlyCondition{hour: $hour, condition: $text: temp: $temp}';
+  }
+
+}

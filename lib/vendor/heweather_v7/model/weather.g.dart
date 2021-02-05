@@ -44,3 +44,42 @@ Map<String, dynamic> _$LiveConditionToJson(LiveCondition instance) =>
       'windScale': instance.windScale,
       'windSpeed': instance.windSpeed,
     };
+
+HourlyCondition _$HourlyConditionFromJson(Map<String, dynamic> json) {
+  return HourlyCondition(
+    cloud: int.parse(json['cloud'] as String),
+    dew: int.parse(json['dew'] as String),
+    hour: json['fxTime'] == null
+        ? null
+        : DateTime.parse(json['fxTime'] as String),
+    humidity: int.parse(json['humidity'] as String),
+    icon: json['icon'] as String,
+    pop: int.parse(json['pop'] as String),
+    precip: json['precip'] as String,
+    pressure: int.parse(json['pressure'] as String),
+    temp: int.parse(json['temp'] as String),
+    text: json['text'] as String,
+    wind360: int.parse(json['wind360'] as String),
+    windDir: json['windDir'] as String,
+    windScale: int.parse(json['windScale'] as String),
+    windSpeed: double.parse(json['windSpeed'] as String),
+  );
+}
+
+Map<String, dynamic> _$HourlyConditionToJson(HourlyCondition instance) =>
+    <String, dynamic>{
+      'cloud': numToString(instance.cloud),
+      'dew': numToString(instance.dew),
+      'fxTime': instance.hour?.toIso8601String(),
+      'humidity': numToString(instance.humidity),
+      'icon': instance.icon,
+      'pop': numToString(instance.pop),
+      'precip': instance.precip,
+      'pressure': numToString(instance.pressure),
+      'temp': numToString(instance.temp),
+      'text': instance.text,
+      'wind360': numToString(instance.wind360),
+      'windDir': instance.windDir,
+      'windScale': numToString(instance.windScale),
+      'windSpeed': numToString(instance.windSpeed),
+    };
