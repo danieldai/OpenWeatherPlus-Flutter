@@ -211,3 +211,182 @@ class HourlyCondition implements Cloneable<HourlyCondition> {
   }
 
 }
+
+
+// https://dev.qweather.com/docs/api/weather/
+@JsonSerializable()
+class DailyCondition implements Cloneable<DailyCondition> {
+  /// 预报当天云量，百分比数值 23
+  @JsonKey(name: 'cloud', fromJson: int.parse, toJson: numToString)
+  int cloud;
+
+  /// 预报日期 2013-05-31
+  @JsonKey(name: 'fxDate')
+  DateTime fxDate;
+
+  /// 预报当天相对湿度，百分比数值 40
+  @JsonKey(name: 'humidity', fromJson: int.parse, toJson: numToString)
+  int humidity;
+
+  /// 预报白天天气状况的图标代码 100
+  @JsonKey(name: 'iconDay')
+  String iconDay;
+
+  /// 预报夜间天气状况的图标代码 100
+  @JsonKey(name: 'iconNight')
+  String iconNight;
+
+  /// 月相名称	满月
+  @JsonKey(name: 'moonPhase')
+  String moonPhase;
+
+  /// 月升时间	16:09
+  @JsonKey(name: 'moonrise')
+  String moonrise;
+
+  /// 月落时间	04:21
+  @JsonKey(name: 'moonset')
+  String moonset;
+
+  /// 预报当天降水量，默认单位：毫米 1.2
+  @JsonKey(name: 'precip', fromJson: double.parse, toJson: numToString)
+  double precipitation;
+
+  /// 预报当天大气压强，默认单位：百帕 1020
+  @JsonKey(name: 'pres', fromJson: int.parse, toJson: numToString)
+  int pressure;
+
+  /// 日出时间 07:34
+  @JsonKey(name: 'sunrise')
+  String sunrise;
+
+  /// 日落时间	17:21
+  @JsonKey(name: 'sunset')
+  String sunset;
+
+  // 预报当天最高温度	4
+  @JsonKey(name: 'tempMax', fromJson: int.parse, toJson: numToString)
+  int tempMax;
+
+  /// 预报当天最低温度	-5
+  @JsonKey(name: 'tempMin', fromJson: int.parse, toJson: numToString)
+  int tempMin;
+
+  /// 预报白天天气状况文字描述 晴
+  @JsonKey(name: 'textDay')
+  String textDay;
+
+  /// 预报晚间天气状况文字描述 晴
+  @JsonKey(name: 'textNight')
+  String textNight;
+
+  /// 预报当天紫外线强度指数 3
+  @JsonKey(name: 'uvIndex', fromJson: int.parse, toJson: numToString)
+  int uvIndex;
+
+  /// 预报当天能见度，默认单位：公里 	10
+  @JsonKey(name: 'vis', fromJson: int.parse, toJson: numToString)
+  int vis;
+
+  /// 预报白天风向360角度  305
+  @JsonKey(name: 'wind360Day', fromJson: int.parse, toJson: numToString)
+  int wind360Day;
+
+  /// 预报夜间风向360角度 305
+  @JsonKey(name: 'wind360Night', fromJson: int.parse, toJson: numToString)
+  int wind360Night;
+
+  /// 预报白天风向  西北
+  @JsonKey(name: 'windDirDay')
+  String windDirDay;
+
+  /// 预报夜间当天风向 西北
+  @JsonKey(name: 'windDirNight')
+  String windDirNight;
+
+  /// 预报白天风力等级 3-4
+  @JsonKey(name: 'windScaleDay')
+  String windScaleDay;
+
+  /// 预报夜间风力等级 3-4
+  @JsonKey(name: 'windScaleNight')
+  String windScaleNight;
+
+  /// 预报白天风速，公里/小时 15
+  @JsonKey(name: 'windSpeedDay', fromJson: double.parse, toJson: numToString)
+  double windSpeedDay;
+
+  /// 预报夜间风速，公里/小时 15
+  @JsonKey(name: 'windSpeedNight', fromJson: double.parse, toJson: numToString)
+  double windSpeedNight;
+
+
+  DailyCondition({
+    this.cloud,
+    this.fxDate,
+    this.humidity,
+    this.iconDay,
+    this.iconNight,
+    this.moonPhase,
+    this.moonrise,
+    this.moonset,
+    this.precipitation,
+    this.pressure,
+    this.sunrise,
+    this.sunset,
+    this.tempMax,
+    this.tempMin,
+    this.textDay,
+    this.textNight,
+    this.uvIndex,
+    this.vis,
+    this.wind360Day,
+    this.wind360Night,
+    this.windDirDay,
+    this.windDirNight,
+    this.windScaleDay,
+    this.windScaleNight,
+    this.windSpeedDay,
+    this.windSpeedNight,
+  });
+
+  // factory DailyCondition.fromJson(Map<String, dynamic> parsedJson) => _$DailyConditionFromJson(parsedJson);
+
+  // Map<String, dynamic> toJson() => _$DailyConditionToJson(this);
+
+  @override
+  DailyCondition clone() {
+    return DailyCondition()
+      ..cloud = cloud
+      ..fxDate = fxDate
+      ..humidity = humidity
+      ..iconDay = iconDay
+      ..iconNight = iconNight
+      ..moonPhase = moonPhase
+      ..moonrise = moonrise
+      ..moonset = moonset
+      ..precipitation = precipitation
+      ..pressure = pressure
+      ..sunrise = sunrise
+      ..sunset = sunset
+      ..tempMax = tempMax
+      ..tempMin = tempMin
+      ..textDay = textDay
+      ..textNight = textNight
+      ..uvIndex = uvIndex
+      ..vis = vis
+      ..wind360Day = wind360Day
+      ..wind360Night = wind360Night
+    ..windDirDay = windDirDay
+    ..windDirNight = windDirNight
+    ..windScaleDay = windScaleDay
+    ..windScaleNight = windScaleNight
+    ..windSpeedDay = windSpeedDay
+    ..windSpeedNight = windSpeedNight;
+  }
+
+  @override
+  String toString() {
+    return 'DailyCondition{ date: $fxDate, textDay: $textDay}';
+  }
+}

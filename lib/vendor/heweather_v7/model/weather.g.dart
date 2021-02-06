@@ -83,3 +83,66 @@ Map<String, dynamic> _$HourlyConditionToJson(HourlyCondition instance) =>
       'windScale': numToString(instance.windScale),
       'windSpeed': numToString(instance.windSpeed),
     };
+
+DailyCondition _$DailyConditionFromJson(Map<String, dynamic> json) {
+  return DailyCondition(
+    cloud: int.parse(json['cloud'] as String),
+    fxDate: json['fxDate'] == null
+        ? null
+        : DateTime.parse(json['fxDate'] as String),
+    humidity: int.parse(json['humidity'] as String),
+    iconDay: json['iconDay'] as String,
+    iconNight: json['iconNight'] as String,
+    moonPhase: json['moonPhase'] as String,
+    moonrise: json['moonrise'] as String,
+    moonset: json['moonset'] as String,
+    precipitation: double.parse(json['precip'] as String),
+    pressure: int.parse(json['pres'] as String),
+    sunrise: json['sunrise'] as String,
+    sunset: json['sunset'] as String,
+    tempMax: int.parse(json['tempMax'] as String),
+    tempMin: int.parse(json['tempMin'] as String),
+    textDay: json['textDay'] as String,
+    textNight: json['textNight'] as String,
+    uvIndex: int.parse(json['uvIndex'] as String),
+    vis: int.parse(json['vis'] as String),
+    wind360Day: int.parse(json['wind360Day'] as String),
+    wind360Night: int.parse(json['wind360Night'] as String),
+    windDirDay: json['windDirDay'] as String,
+    windDirNight: json['windDirNight'] as String,
+    windScaleDay: json['windScaleDay'] as String,
+    windScaleNight: json['windScaleNight'] as String,
+    windSpeedDay: double.parse(json['windSpeedDay'] as String),
+    windSpeedNight: double.parse(json['windSpeedNight'] as String),
+  );
+}
+
+Map<String, dynamic> _$DailyConditionToJson(DailyCondition instance) =>
+    <String, dynamic>{
+      'cloud': numToString(instance.cloud),
+      'fxDate': instance.fxDate?.toIso8601String(),
+      'humidity': numToString(instance.humidity),
+      'iconDay': instance.iconDay,
+      'iconNight': instance.iconNight,
+      'moonPhase': instance.moonPhase,
+      'moonrise': instance.moonrise,
+      'moonset': instance.moonset,
+      'precip': numToString(instance.precipitation),
+      'pres': numToString(instance.pressure),
+      'sunrise': instance.sunrise,
+      'sunset': instance.sunset,
+      'tempMax': numToString(instance.tempMax),
+      'tempMin': numToString(instance.tempMin),
+      'textDay': instance.textDay,
+      'textNight': instance.textNight,
+      'uvIndex': numToString(instance.uvIndex),
+      'vis': numToString(instance.vis),
+      'wind360Day': numToString(instance.wind360Day),
+      'wind360Night': numToString(instance.wind360Night),
+      'windDirDay': instance.windDirDay,
+      'windDirNight': instance.windDirNight,
+      'windScaleDay': instance.windScaleDay,
+      'windScaleNight': instance.windScaleNight,
+      'windSpeedDay': numToString(instance.windSpeedDay),
+      'windSpeedNight': numToString(instance.windSpeedNight),
+    };
