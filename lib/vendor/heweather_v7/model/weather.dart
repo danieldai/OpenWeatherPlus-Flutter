@@ -25,49 +25,63 @@ part 'weather.g.dart';
  */
 @JsonSerializable()
 class LiveCondition implements Cloneable<LiveCondition> {
-
+  /// 实况云量，百分比数值	23
   @JsonKey(name: 'cloud')
   String cloud;
 
+  /// 实况露点温度	12
   @JsonKey(name: 'dew')
   String dew;
 
+  /// 实况体感温度，默认单位：摄氏度	23
   @JsonKey(name: 'feelsLike')
   String feelsLike;
 
+  /// 实况相对湿度，百分比数值	40
   @JsonKey(name: 'humidity')
   String humidity;
 
+  /// 当前天气状况和图标的代码  100
   @JsonKey(name: 'icon')
   String icon;
 
+  /// 实况观测时间	2013-12-30T01:45+08:00
   @JsonKey(name: 'obsTime')
   String obsTime;
 
+  /// 实况降水量，默认单位：毫米	1.2
   @JsonKey(name: 'precip')
   String precip;
 
+  /// 实况大气压强，默认单位：百帕	1020
   @JsonKey(name: 'pressure')
   String pressure;
 
+  /// 实况温度，默认单位：摄氏度	21
   @JsonKey(name: 'temp')
   String temp;
 
+  /// 实况天气状况的文字描述，包括阴晴雨雪等天气状态的描述	晴
   @JsonKey(name: 'text')
   String text;
 
+  /// 实况能见度，默认单位：公里	10
   @JsonKey(name: 'vis')
   String vis;
 
+  /// 实况风向360角度	305
   @JsonKey(name: 'wind360')
   String wind360;
 
+  /// 实况风向	西北
   @JsonKey(name: 'windDir')
   String windDir;
 
+  /// 实况风力等级	3
   @JsonKey(name: 'windScale')
   String windScale;
 
+  /// 实况风速，公里/小时	15
   @JsonKey(name: 'windSpeed')
   String windSpeed;
 
@@ -121,45 +135,59 @@ class LiveCondition implements Cloneable<LiveCondition> {
 
 @JsonSerializable()
 class HourlyCondition implements Cloneable<HourlyCondition> {
+  /// 逐小时预报云量，百分比数值	23
   @JsonKey(fromJson: int.parse, toJson: numToString)
   int cloud;
 
+  /// 逐小时预报露点温度	12
   @JsonKey(fromJson: int.parse, toJson: numToString)
   int dew; // 露点温度
 
+  /// 逐小时预报时间	2013-12-30T13:00+08:00
   @JsonKey(name: 'fxTime')
-  DateTime hour;
+  DateTime fxTime;
 
+  /// 逐小时预报相对湿度，百分比数值	40
   @JsonKey(name: 'humidity', fromJson: int.parse, toJson: numToString)
   int humidity;
 
+  /// 逐小时预报天气状况图标代码，图标可通过天气状况和图标下载	101
   @JsonKey(name: 'icon')
   String icon;
 
+  /// 逐小时预报降水概率，百分比数值，可能为空	5
   @JsonKey(fromJson: int.parse, toJson: numToString)
   int pop; // 降水概率
 
+  /// 逐小时预报降水量，默认单位：毫米	1.2
   @JsonKey(name: 'precip')
   String precip;
 
+  /// 逐小时预报大气压强，默认单位：百帕	1020
   @JsonKey(name: 'pressure', fromJson: int.parse, toJson: numToString)
   int pressure;
 
+  /// 逐小时预报温度	2
   @JsonKey(name: 'temp', fromJson: int.parse, toJson: numToString)
   int temp;
 
+  /// 逐小时预报天气状况文字描述，包括阴晴雨雪等天气状态的描述	多云
   @JsonKey(name: 'text')
   String text;
 
+  /// 逐小时预报风向360角度	305
   @JsonKey(name: 'wind360', fromJson: int.parse, toJson: numToString)
   int wind360;
 
+  /// 逐小时预报风向	西北
   @JsonKey(name: 'windDir')
   String windDir;
 
+  /// 逐小时预报风力等级	3
   @JsonKey(name: 'windScale', fromJson: int.parse, toJson: numToString)
   int windScale;
 
+  /// 逐小时预报风速，公里/小时	15
   @JsonKey(name: 'windSpeed', fromJson: double.parse, toJson: numToString)
   double windSpeed;
 
@@ -168,7 +196,7 @@ class HourlyCondition implements Cloneable<HourlyCondition> {
   HourlyCondition({
     this.cloud,
     this.dew,
-    this.hour,
+    this.fxTime,
     this.humidity,
     this.icon,
     this.pop,
@@ -191,7 +219,7 @@ class HourlyCondition implements Cloneable<HourlyCondition> {
     return HourlyCondition()
       ..cloud = cloud
       ..dew = dew
-      ..hour = hour
+      ..fxTime = fxTime
       ..humidity = humidity
       ..icon = icon
       ..pop = pop
@@ -207,7 +235,7 @@ class HourlyCondition implements Cloneable<HourlyCondition> {
 
   @override
   String toString() {
-    return 'HourlyCondition{hour: $hour, condition: $text: temp: $temp}';
+    return 'HourlyCondition{fxTime: $fxTime, condition: $text: temp: $temp}';
   }
 
 }

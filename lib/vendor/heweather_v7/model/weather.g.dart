@@ -49,7 +49,7 @@ HourlyCondition _$HourlyConditionFromJson(Map<String, dynamic> json) {
   return HourlyCondition(
     cloud: int.parse(json['cloud'] as String),
     dew: int.parse(json['dew'] as String),
-    hour: json['fxTime'] == null
+    fxTime: json['fxTime'] == null
         ? null
         : DateTime.parse(json['fxTime'] as String),
     humidity: int.parse(json['humidity'] as String),
@@ -70,7 +70,7 @@ Map<String, dynamic> _$HourlyConditionToJson(HourlyCondition instance) =>
     <String, dynamic>{
       'cloud': numToString(instance.cloud),
       'dew': numToString(instance.dew),
-      'fxTime': instance.hour?.toIso8601String(),
+      'fxTime': instance.fxTime?.toIso8601String(),
       'humidity': numToString(instance.humidity),
       'icon': instance.icon,
       'pop': numToString(instance.pop),
