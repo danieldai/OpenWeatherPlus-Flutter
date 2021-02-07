@@ -1,4 +1,4 @@
-# OpenWeatherPlus-Flutter
+# OpenWeatherPlus-Flutter ([中文版](/doc/README_cn.md))
 
 This is Flutter version of OpenWeatherPlus created by [Daniel Dai](https://www.danieldai.com).
  
