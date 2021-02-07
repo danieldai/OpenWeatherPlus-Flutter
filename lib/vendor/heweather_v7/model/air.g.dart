@@ -8,7 +8,7 @@ part of 'air.dart';
 
 LiveAqi _$LiveAqiFromJson(Map<String, dynamic> json) {
   return LiveAqi(
-    value: double.parse(json['aqi'] as String),
+    aqi: double.parse(json['aqi'] as String),
     category: json['category'] as String,
     level: json['level'] as String,
     co: double.parse(json['co'] as String),
@@ -25,7 +25,7 @@ LiveAqi _$LiveAqiFromJson(Map<String, dynamic> json) {
 }
 
 Map<String, dynamic> _$LiveAqiToJson(LiveAqi instance) => <String, dynamic>{
-      'aqi': numToString(instance.value),
+      'aqi': numToString(instance.aqi),
       'category': instance.category,
       'level': instance.level,
       'co': numToString(instance.co),

@@ -21,41 +21,52 @@ part 'air.g.dart';
 /// https://dev.qweather.com/docs/api/air/
 @JsonSerializable()
 class LiveAqi implements Cloneable<LiveAqi> {
+  /// 实时空气质量指数	74
   @JsonKey(name: 'aqi', fromJson: double.parse, toJson: numToString)
-  double value;
+  double aqi;
 
+  /// 实时空气质量指数级别	良
   @JsonKey(name: 'category')
   String category;
 
+  /// 实时空气质量指数等级	2
   @JsonKey(name: 'level')
   String level;
 
+  /// 实时 一氧化碳	33
   @JsonKey(fromJson: double.parse, toJson: numToString)
   double co;
 
+  /// 实时 二氧化氮	40
   @JsonKey(fromJson: double.parse, toJson: numToString)
   double no2;
 
+  /// 实时 臭氧	20
   @JsonKey(fromJson: double.parse, toJson: numToString)
   double o3;
 
+  /// 实时 pm10	78
   @JsonKey(fromJson: double.parse, toJson: numToString)
   double pm10;
 
+  /// 实时 pm2.5	66
   @JsonKey(fromJson: double.parse, toJson: numToString)
   double pm2p5;
 
+  /// 实时空气质量的主要污染物，空气质量为优时，返回值为NA	pm2.5
   @JsonKey(name: 'primary')
   String primary;
 
+  /// 实时空气质量数据发布时间	2013-12-30T01:45+08:00
   @JsonKey(name: 'pubTime')
   DateTime pubTime;
 
+  /// 实时 二氧化硫	30
   @JsonKey(fromJson: double.parse, toJson: numToString)
   double so2;
 
   LiveAqi({
-    this.value,
+    this.aqi,
     this.category,
     this.level,
     this.co,
@@ -76,7 +87,7 @@ class LiveAqi implements Cloneable<LiveAqi> {
   @override
   LiveAqi clone() {
     return LiveAqi()
-      ..value = value
+      ..aqi = aqi
       ..category = category
       ..level = level
       ..co = co
@@ -91,7 +102,7 @@ class LiveAqi implements Cloneable<LiveAqi> {
 
   @override
   String toString() {
-    return 'LiveAqi{value: $value: pm25: $pm2p5 pubtime: $pubTime}';
+    return 'LiveAqi{aqi: $aqi: pm25: $pm2p5 pubTime: $pubTime}';
   }
 }
 
