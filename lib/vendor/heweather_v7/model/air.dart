@@ -106,26 +106,33 @@ class LiveAqi implements Cloneable<LiveAqi> {
   }
 }
 
+/// https://dev.qweather.com/docs/api/air/
 @JsonSerializable()
 class DailyAqi implements Cloneable<DailyAqi> {
+  /// 空气质量逐天预报日期	2018-05-31
   @JsonKey(name: 'fxDate')
   DateTime date;
 
+  /// 空气质量逐天预报指数	74
   @JsonKey(name: 'aqi', fromJson: int.parse, toJson: numToString)
-  int value;
+  int aqi;
 
+  /// 逐天预空气质量指数级别	良
   @JsonKey(name: 'category')
   String category;
 
+  /// 逐天预报的空气质量指数等级	2
   @JsonKey(name: 'level')
   String level;
 
+  /// 空气质量逐天预报的主要污染物，空气质量为优时，返回值为NA	pm2.5
   @JsonKey(name: 'primary')
   String primary;
 
-  DailyAqi({this.date, this.value, this.category, this. level, this.primary});
+  DailyAqi({this.date, this.aqi, this.category, this.level, this.primary});
 
-  factory DailyAqi.fromJson(Map<String, dynamic> parsedJson) => _$DailyAqiFromJson(parsedJson);
+  factory DailyAqi.fromJson(Map<String, dynamic> parsedJson) =>
+      _$DailyAqiFromJson(parsedJson);
 
   Map<String, dynamic> toJson() => _$DailyAqiToJson(this);
 
@@ -133,15 +140,14 @@ class DailyAqi implements Cloneable<DailyAqi> {
   DailyAqi clone() {
     return DailyAqi()
       ..date = date
-      ..value = value
-        ..category = category
-        ..level = level
-        ..primary = primary;
+      ..aqi = aqi
+      ..category = category
+      ..level = level
+      ..primary = primary;
   }
 
   @override
   String toString() {
-    return 'DailyAqi{date: $date, value: $value}';
+    return 'DailyAqi{date: $date, aqi: $aqi}';
   }
 }
-

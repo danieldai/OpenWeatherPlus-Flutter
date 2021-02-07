@@ -43,7 +43,7 @@ DailyAqi _$DailyAqiFromJson(Map<String, dynamic> json) {
     date: json['fxDate'] == null
         ? null
         : DateTime.parse(json['fxDate'] as String),
-    value: int.parse(json['aqi'] as String),
+    aqi: int.parse(json['aqi'] as String),
     category: json['category'] as String,
     level: json['level'] as String,
     primary: json['primary'] as String,
@@ -52,7 +52,7 @@ DailyAqi _$DailyAqiFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$DailyAqiToJson(DailyAqi instance) => <String, dynamic>{
       'fxDate': instance.date?.toIso8601String(),
-      'aqi': numToString(instance.value),
+      'aqi': numToString(instance.aqi),
       'category': instance.category,
       'level': instance.level,
       'primary': instance.primary,
