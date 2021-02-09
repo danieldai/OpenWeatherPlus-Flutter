@@ -22,7 +22,7 @@ Please refer to:
 
 ## Todos
 
-[ ] Add support for heweather.com API v7
+- [ ] Add support for heweather.com API v7
 
 ## License
 
