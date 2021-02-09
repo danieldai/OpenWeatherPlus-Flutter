@@ -22,7 +22,7 @@ Flutter 版的 OpenWeatherPlus 的维护人是 [Daniel Dai](https://www.danielda
 
 ## 待办
 
-[ ] 添加对和风API v7版的支持
+- [ ] 添加对和风API v7版的支持
 
 ## 许可证
 
