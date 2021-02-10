@@ -24,6 +24,25 @@ Please refer to:
 
 - [ ] Add support for heweather.com API v7
 
+## Dependences
+
+- Flutter 
+- amap_location
+- permission_handler
+- fish_redux
+- dio
+- flutter_svg
+- fluttertoast
+- redux_persist_flutter
+- json_annotation
+- flutter_bugly
+- flutter_screenutil
+- android_intent
+- intl
+- logger
+- package_info
+- open_file
+
 ## License
 
 	Copyright 2020 Daniel Dai (danieldai.com, mianjiajia.com)

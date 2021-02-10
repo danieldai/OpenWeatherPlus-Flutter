@@ -24,6 +24,25 @@ Flutter 版的 OpenWeatherPlus 的维护人是 [Daniel Dai](https://www.danielda
 
 - [ ] 添加对和风API v7版的支持
 
+## 依赖包
+
+- Flutter 
+- amap_location
+- permission_handler
+- fish_redux
+- dio
+- flutter_svg
+- fluttertoast
+- redux_persist_flutter
+- json_annotation
+- flutter_bugly
+- flutter_screenutil
+- android_intent
+- intl
+- logger
+- package_info
+- open_file
+
 ## 许可证
 
 	Copyright 2020 Daniel Dai (danieldai.com, mianjiajia.com)
